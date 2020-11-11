@@ -1,0 +1,52 @@
+body {
+    background-color: black;
+    color: gray;
+    /*font-size: 50px;*/
+    margin:0px;
+    padding:0px;
+    overflow:hidden;
+}
+
+.hidden {
+    display: none;
+}
+
+.centered {
+    position: fixed;
+    text-align: center;
+    width: 75%;
+    top: 50%;
+    left: 50%;
+    /* bring your own prefixes */
+    transform: translate(-50%, -50%);
+}
+
+/* Breakout Game */
+.board {
+    height: 99.9%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.board-row {
+    height: 6.666%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+.tile {
+    flex: 1;
+    min-width: 15px;
+    border: 1px solid black;
+    color: transparent;
+}
+
+.brick {
+    width: 100%;
+    height: 100%;
+    min-width: 15px;
+}
