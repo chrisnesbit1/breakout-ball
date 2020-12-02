@@ -9,16 +9,11 @@ class Controller {
 
     constructor() {
         this.game = new Game();
-        this.modals.welcome = new Modal({
-            cssSelector: '.modal.welcome', 
-            showCallback: function() {document.querySelector('.board').style.opacity = '0.3';}, 
-            hideCallback: function() {document.querySelector('.board').style.opacity = '1';}, 
-        });
-        this.modals.paused = new Modal({
-            cssSelector: '.modal.paused', 
-            showCallback: function() {document.querySelector('.board').style.opacity = '0.3';}, 
-            hideCallback: function() {document.querySelector('.board').style.opacity = '1';}, 
-        });
+        
+        const showCallback = function() {document.querySelector('.board').style.opacity = '0.3';};
+        const hideCallback = function() {document.querySelector('.board').style.opacity = '1';};
+        this.modals.welcome = new Modal('.modal.welcome', showCallback, hideCallback);
+        this.modals.paused = new Modal('.modal.paused', showCallback, hideCallback);
 
         this.bindKeys();
 
