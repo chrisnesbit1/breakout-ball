@@ -5,7 +5,22 @@
     </head>
     <body>
         <div class="board"></div>
+        <div class="modal welcome hidden">
+            <h1>Breakout Ball</h1>
+            <br/>
+            <p></p>Use the <code>LEFT</code> and <code>RIGHT</code> arrow keys to control the paddle.</p>
+            <br/>
+            <p></p>Press Enter to begin or pause the game.</p>
+        </div>
+        <div class="modal paused hidden">
+            <h1>Breakout Ball</h1>
+            <br/>
+            <p></p>Game paused.</p>
+            <br/>
+            <p></p>Press Enter to continue the game.</p>
+        </div>
     </body>
 </html>
-<script src="js/jquery.2.2.2.min.js"></script>
-<script src="js/newtab.js"></script>
+<script src="js/lib/ui_objects.js"></script>
+<script src="js/lib/game_objects.js"></script>
+<script src="js/controller.js"></script>
