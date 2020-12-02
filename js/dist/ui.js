@@ -20,7 +20,6 @@ var Random = /** @class */ (function () {
     };
     return Random;
 }());
-var test = function () { };
 var Modal = /** @class */ (function () {
     function Modal(cssSelector, showCallback, hideCallback) {
         this.cssSelector = '.modal';

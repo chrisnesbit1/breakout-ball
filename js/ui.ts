@@ -13,13 +13,6 @@ class Random {
     }
 }
 
-let test = function(){};
-type AppErrorTemplateType = {
-    [name: string]: {
-        template: string,
-        code: string
-    }
-};
 class Modal {
 
     cssSelector: string = '.modal';
