@@ -1,88 +1,3 @@
-class GameConstants {
-    static get Colors() { return ["green", "red", "blue", "yellow", "fuchsia", "lime", "aqua"]; };
-    static get TotalRows() { return 15; };
-    static get TotalColumns() { return 20; };
-};
-
-class Brick {
-
-    color = "black";
-    rowNumber = 0;
-    columnNumber = 0;
-
-    constructor(color, rowNumber, columnNumber) {
-        this.color = color;
-        this.rowNumber = rowNumber;
-        this.columnNumber = columnNumber;
-    };
-
-    GetHTML() {
-        let inlineStyle = "background: "+this.color;
-        return `<div class='brick' style='${inlineStyle}' data-row='${this.rowNumber}' data-column='${this.columnNumber}'></div>`;
-    }
-};
-
-
-class Paddle {
-
-    parentCssSelector = "";
-    color = "red";
-    left = 0;
-    pixelWidth = 0;
-
-    constructor(parentCssSelector, color, pixelWidth) {
-        this.parentCssSelector = parentCssSelector;
-        this.color = color;
-        this.pixelWidth = pixelWidth;
-        this.Render({startCentered: true});
-    }
-
-    Render(args) {
-        this.left = args.startCentered ? parseInt((visualViewport.width / 2) - (this.pixelWidth/2)) : 0;
-        let paddle = document.createElement('div');
-        paddle.classList.add('paddle');
-        paddle.style.left = this.left+'px';
-        paddle.style.background = this.color;
-        paddle.style.width = this.pixelWidth+'px';
-        document.querySelector(this.parentCssSelector).append(paddle);
-    }
-
-    GetLeft() {
-        return this.left;
-    }
-    GetWidth() {
-        return this.pixelWidth;
-    }
-}
-
-class Ball {
-
-    cssContainerSelector = "blue";
-    color = "blue";
-    top = 0;
-    left = 0;
-    pixelDiameter = 0;
-
-    constructor(cssContainerSelector, color, top, left, pixelDiameter) {
-        this.cssContainerSelector = cssContainerSelector;
-        this.color = color;
-        this.pixelDiameter = pixelDiameter;
-        this.top = top;
-        this.left = left - (pixelDiameter/2);
-        this.Render();
-    }
-
-    Render() {
-        let ball = document.createElement('div');
-        ball.classList.add('ball');
-        ball.style.top = this.top+'px';
-        ball.style.left = this.left+'px';
-        ball.style.background = this.color;
-        ball.style.height = this.pixelDiameter+'px';
-        ball.style.width = this.pixelDiameter+'px';
-        document.querySelector(this.cssContainerSelector).append(ball);
-    }
-}
 
 class GameBoard {
 
@@ -120,7 +35,8 @@ class GameBoard {
                 if (brickColumnPadding <= c && c < GameConstants.TotalColumns - brickColumnPadding) {
                     let brick = new Brick(Random.Color(), r, c);
                     this.bricks.push(brick);
-                    brickHTML = brick.GetHTML();
+                    brickHTML = brick.GetHTML(); 
+                    //TODO: rework to use GetHTMLDivElement() instead of GetHTML()
                 }
 
                 let tileDiv = document.createElement('div');
